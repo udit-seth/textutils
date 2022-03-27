@@ -5,30 +5,47 @@ export default function TextForm(props) {
         //console.log("Uppercase was clicked");
         let newText = text.toUpperCase();
         setText(newText);
+        props.showAlert("converted to UpperCase", "success");
     }
 
     const handleLowClick = () => {
         //console.log("Uppercase was clicked");
         let newText = text.toLowerCase();
         setText(newText);
+        props.showAlert("converted to LowerCase", "success");
     }
 
     const handleClearClick = () => {
         //console.log("Uppercase was clicked");
         let newText = '';
         setText(newText);
+        props.showAlert("text cleared", "success");
     }
 
     const handleCopy = () => {
         var text = document.getElementById("myText");
         text.select();
         navigator.clipboard.writeText(text.value);
+        props.showAlert("text copied to clipboard", "success");
     }
 
     const handleExtraSpaces = () => {
-        let newText = text.split(/[]+/);
+        let newText = text.split(/[ ]+/);
         setText(newText.join(" "));
+        props.showAlert("extra spaces removed", "success");
     }
+
+
+    /*const words = () => {
+        let wrd = text.trim.split(" ").length;
+        if (wrd === 1 && text.split(" ")[0] === "") {
+            wrd = 0;
+            return wrd;
+        }
+        else {
+            return wrd;
+        }
+    }*/
 
 
 
@@ -62,9 +79,14 @@ export default function TextForm(props) {
                 <h2>Text Summary</h2>
                 <p>the text contains {text.split(" ").length} words and {text.length} characters</p>
                 <p>{0.008 * text.split(" ").length} minutes required to read the text</p>
+
                 <h2>Preview</h2>
                 <p>{text.length > 0 ? text : "Enter something above to preview here"}</p>
             </div>
         </>
     )
 }
+
+
+
+//<p>the text contains {words} words</p>
