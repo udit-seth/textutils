@@ -2,15 +2,15 @@
 import React, { useState } from 'react';
 import './App.css';
 import Alert from './components/Alert';
-import About from './components/About';
+//import About from './components/About';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
-import {
+/*import {
   BrowserRouter as Router,
   Switch,
   Route,
   //Link --because it is not used in app.js 
-} from "react-router-dom";
+} from "react-router-dom";*/
 
 
 //let name= "udit";
@@ -52,24 +52,24 @@ function App() {
   //because every thing is packed inside a router go to website :- react router dom
   return (
     <>
-      <Router>
-        {<Navbar title="Text Analyzer" aT="About Us" mode={mode} toggleMode={toggleMode} />}
+      { /*<Router>*/}
+      {<Navbar title="Text Analyzer" aT="About Us" mode={mode} toggleMode={toggleMode} />}
 
-        <div className="container my-3">
+      <div className="container my-3">
 
-          <Switch>
+        {/*<Switch>
             <Route exact path="/about">
               <About />
             </Route>
-            <Route path="/">
-              <TextForm heading="Enter the text here:" mode={mode} showAlert={showAlert} />
-            </Route>
-          </Switch>
+            <Route path="/">*/}
+        <TextForm heading="Enter the text here:" mode={mode} showAlert={showAlert} />
+        {/*</Route>
+          </Switch>*/}
 
-          {/*<About />*/}
-          <Alert exact alert={alert} />
-        </div>
-      </Router>
+        {/*<About />*/}
+        <Alert exact alert={alert} />
+      </div>
+      {/*</Router>*/}
 
     </>
   );
