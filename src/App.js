@@ -22,7 +22,7 @@ function App() {
       setMode('dark');
       document.body.style.backgroundColor = '#042743';
       showAlert("Dark mode has been enabled", "success");
-      document.title = "TextAnalyzer - Dark Mode";
+      //document.title = "TextAnalyzer - Dark Mode";
       /*setInterval(() => {
         document.title = "TextAnalyzer is the best app";
       }, 1500);
@@ -34,7 +34,7 @@ function App() {
       setMode('light');
       document.body.style.backgroundColor = 'white';
       showAlert("Dark mode has been disabled", "danger");
-      document.title = "TextAnalyzer - Light Mode";
+      //document.title = "TextAnalyzer - Light Mode";
     }
   }
 
@@ -53,17 +53,17 @@ function App() {
   return (
     <>
       <Router>
-        {<Navbar title="Text Analyzer" aT="About Us" mode={mode} toggleMode={toggleMode} />}
+        {<Navbar title="TextAnalyzer" aT="About Us" mode={mode} toggleMode={toggleMode} />}
         <Alert exact alert={alert} />
 
         <div className="container my-3">
 
           <Switch>
             <Route exact path="/about">
-              <About />
+              <About mode={mode} />
             </Route>
             <Route path="/">
-              <TextForm heading="Enter the text here:" mode={mode} showAlert={showAlert} />
+              <TextForm heading="Try TextAnalyzer - Word counter, Character counter, Remove Extra Spaces" mode={mode} showAlert={showAlert} />
             </Route>
           </Switch>
 
