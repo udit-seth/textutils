@@ -37,18 +37,6 @@ export default function TextForm(props) {
     }
 
 
-    /*const words = () => {
-        let wrd = text.trim.split(" ").length;
-        if (wrd === 1 && text.split(" ")[0] === "") {
-            wrd = 0;
-            return wrd;
-        }
-        else {
-            return wrd;
-        }
-    }*/
-
-
 
     const handleOnChange = (event) => {
         //console.log("On change");
@@ -78,7 +66,7 @@ export default function TextForm(props) {
 
             <div className="container my-3" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
                 <h2>Text Summary</h2>
-                <p>the text contains {text.split(" ").filter((element) => { return element.length !== 0 }).length} words and {text.length} characters</p>
+                <p>the text contains {text.split(/\s+/).filter((element) => { return element.length !== 0 }).length} words and {text.length} characters</p>
                 <p>{0.008 * text.split(" ").filter((element) => { return element.length !== 0 }).length} minutes required to read the text</p>
 
                 <h2>Preview</h2>
